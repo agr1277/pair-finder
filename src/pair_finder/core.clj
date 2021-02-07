@@ -1,7 +1,8 @@
 (ns pair-finder.core
   (:require [clojure.string :as s]
             [clojure.java.io :as io]
-            [clojure.math.combinatorics :refer [combinations]])
+            [clojure.math.combinatorics :refer [combinations]]
+            [clojure.data.csv :as csv])
   (:gen-class))
 
 (defn parse-row [row]
@@ -21,15 +22,21 @@
        (map vec)
        (frequencies)))
 
-(defn format-output-row [element-pair count]
+(defn format-output-row [[element-pair count]]
   (format "Seen: %d Times | Pair: %s, %s" count (first element-pair) (second element-pair)))
 
 (defn -main
-  [filename & args]
-  (doseq [[element-pair count] (->> filename
-                                    load-rows-from-file
-                                    count-element-pairs
-                                    (filter #(<= 50 (val %)))
-                                    (sort-by val)
-                                    reverse)]
-    (println (format-output-row element-pair count))))
+  [in-file-path out-file-path & args]
+  (let [rows (->> in-file-path
+                  load-rows-from-file
+                  count-element-pairs
+                  (filter #(<= 50 (val %)))
+                  (sort-by val)
+                  reverse)]
+    (with-open [out (io/writer out-file-path)]
+      (->> rows
+           (map key)
+           (csv/write-csv out)))
+    (doseq [row rows]
+      (println (format-output-row row)))
+    (printf "%d pairs output to: [%s]%n" (count rows) out-file-path)))

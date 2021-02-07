@@ -19,7 +19,7 @@ all combinations of musical artists are seen once, except for:
 
 ```shell
 $ lein run [input_file_path]
-$ java -jar pair-finder-0.1.0-standalone.jar [input_file_path]
+$ java -jar pair-finder-0.1.0-standalone.jar [input_file_path] [output_file_path]
 ```
 
 ## Examples

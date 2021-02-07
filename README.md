@@ -55,7 +55,7 @@ $ java -jar pair-finder-0.1.0-standalone.jar [input_file_path] [output_file_path
 An example input file can be found in `resources`, this can be used with the 
 `pair-finder`:
 ```shell
-$ lein run resources/Artist_lists_small.txt 
+$ lein run resources/Artist_lists_small.txt out.csv
 Seen: 73 Times | Pair: The Beatles, Radiohead
 Seen: 70 Times | Pair: Radiohead, Muse
 Seen: 69 Times | Pair: The Beatles, Muse
@@ -75,4 +75,5 @@ Seen: 52 Times | Pair: The Beatles, The Rolling Stones
 Seen: 51 Times | Pair: Muse, Coldplay
 Seen: 50 Times | Pair: The Beatles, Led Zeppelin
 Seen: 50 Times | Pair: Radiohead, Arctic Monkeys
+19 pairs output to: [out.csv]
 ```

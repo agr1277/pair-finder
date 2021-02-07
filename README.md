@@ -13,6 +13,7 @@ all combinations of musical artists are seen once, except for:
 ```text
 [Radiohead, Morrissey]
 ```
+which is seen twice.
 
 ## Algorithm
 
@@ -46,7 +47,7 @@ memory expensive with very large input files.
 ## Usage
 
 ```shell
-$ lein run [input_file_path]
+$ lein run [input_file_path] [output_file_path]
 $ java -jar pair-finder-0.1.0-standalone.jar [input_file_path] [output_file_path]
 ```
 

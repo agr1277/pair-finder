@@ -37,6 +37,8 @@
       (->> rows
            (map key)
            (csv/write-csv out)))
+
     (doseq [row rows]
       (println (format-output-row row)))
+
     (printf "%d pairs output to: [%s]%n" (count rows) out-file-path)))

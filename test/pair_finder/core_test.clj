@@ -15,8 +15,8 @@
 (deftest test-count-pairs
   (testing "counts the occurrences of elements seen together in a vector of element vectors"
     (let [test-rows [["A" "B" "C"]
-                      ["A" "B" "D"]
-                      ["B" "D" "C"]]]
+                     ["A" "B" "D"]
+                     ["B" "D" "C"]]]
       (is (= {["A" "B"] 2
               ["A" "C"] 1
               ["B" "C"] 2

@@ -17,13 +17,13 @@
     (let [test-rows [["A" "B" "C"]
                      ["A" "B" "D"]
                      ["B" "D" "C"]]]
-      (is (= {["A" "B"] 2
-              ["A" "C"] 1
-              ["B" "C"] 2
-              ["A" "D"] 1
-              ["B" "D"] 2
-              ["D" "C"] 1} (count-element-pairs test-rows))))))
+      (is (= {#{"A" "B"} 2
+              #{"A" "C"} 1
+              #{"B" "C"} 2
+              #{"A" "D"} 1
+              #{"B" "D"} 2
+              #{"D" "C"} 1} (count-element-pairs test-rows))))))
 
 (deftest test-format-output-row
   (testing "properly formats an output row"
-    (is (= "Seen: 5 Times | Pair: A, B" (format-output-row ["A" "B"] 5)))))
+    (is (= "Seen: 5 Times | Pair: A, B" (format-output-row [["A" "B"] 5])))))

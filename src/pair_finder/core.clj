@@ -19,7 +19,7 @@
   (->> rows
        (map #(combinations % 2))
        (apply concat)
-       (map vec)
+       (map set)
        (frequencies)))
 
 (defn format-output-row [[element-pair count]]

@@ -1,4 +1,5 @@
 # pair-finder
+[![Build Status](https://travis-ci.com/agr1277/pair-finder.svg?branch=main)](https://travis-ci.com/agr1277/pair-finder)
 
 This project aims to provide a utility to parse comma delimited files and find
 common pairs of row elements.

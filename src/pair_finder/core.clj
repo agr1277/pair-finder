@@ -26,12 +26,10 @@
 
 (defn -main
   [filename & args]
-  (let [output-rows (->> filename
-                         load-rows-from-file
-                         count-element-pairs
-                         (filter #(<= 50 (val %)))
-                         (sort-by val)
-                         (reverse)
-                         (map #(format-output-row (key %) (val %))))]
-    (doseq [row output-rows]
-      (println row))))
+  (doseq [[element-pair count] (->> filename
+                                    load-rows-from-file
+                                    count-element-pairs
+                                    (filter #(<= 50 (val %)))
+                                    (sort-by val)
+                                    reverse)]
+    (println (format-output-row element-pair count))))

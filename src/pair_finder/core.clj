@@ -26,7 +26,7 @@
   (format "Seen: %d Times | Pair: %s, %s" count (first element-pair) (second element-pair)))
 
 (defn -main
-  [in-file-path out-file-path & args]
+  [in-file-path out-file-path & _]
   (let [rows (->> in-file-path
                   load-rows-from-file
                   count-element-pairs

@@ -23,3 +23,7 @@
               ["A" "D"] 1
               ["B" "D"] 2
               ["D" "C"] 1} (count-element-pairs test-rows))))))
+
+(deftest test-format-output-row
+  (testing "properly formats an output row"
+    (is (= "Seen: 5 Times | Pair: A, B" (format-output-row ["A" "B"] 5)))))

@@ -21,6 +21,9 @@
        (map vec)
        (frequencies)))
 
+(defn format-output-row [element-pair count]
+  (format "Seen: %d Times | Pair: %s, %s" count (first element-pair) (second element-pair)))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args])

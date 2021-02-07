@@ -14,6 +14,34 @@ all combinations of musical artists are seen once, except for:
 [Radiohead, Morrissey]
 ```
 
+## Algorithm
+
+The implementation of this is relatively simple, and will count all 
+occurrences of pairs. The core of the algorithm is: 
+```clojure
+(defn count-element-pairs [rows]
+  (->> rows
+       (map #(combinations % 2))
+       (apply concat)
+       (map set)
+       (frequencies)))
+```
+
+For each row, compute all element combinations, collect all combinations, 
+count the occurrences of all element combinations.
+
+Given that an element combination may only occur in a given row **once**, 
+the number of instances of that element is the same as the number of rows it 
+appears in.
+
+This implementation guarantees accurate accounting of combinations in the 
+input rows, but must operate on every element in every row, and becomes 
+memory expensive with very large input files.
+
+#### Possible improvements
+
+* For very large input files, a sampling of rows could be counted and then 
+  extrapolated using statistical analysis.
 
 ## Usage
 

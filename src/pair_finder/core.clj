@@ -25,5 +25,13 @@
   (format "Seen: %d Times | Pair: %s, %s" count (first element-pair) (second element-pair)))
 
 (defn -main
-  "I don't do a whole lot ... yet."
-  [& args])
+  [filename & args]
+  (let [output-rows (->> filename
+                         load-rows-from-file
+                         count-element-pairs
+                         (filter #(<= 50 (val %)))
+                         (sort-by val)
+                         (reverse)
+                         (map #(format-output-row (key %) (val %))))]
+    (doseq [row output-rows]
+      (println row))))

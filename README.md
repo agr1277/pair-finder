@@ -13,9 +13,7 @@ Band of Horses,Smashing Pumpkins,The Velvet Underground,Radiohead,The Decemberis
 
 ## Usage
 
-TODO: complete this
-
-    $ java -jar pair-finder-0.1.0-standalone.jar [args]
+    $ java -jar pair-finder-0.1.0-standalone.jar [input_file_path]
 
 MIT License
 
